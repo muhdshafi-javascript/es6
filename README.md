@@ -13,7 +13,9 @@
         console.log(age);   //32
     }
     console.log(age);       //32
-    
+```
+```javascript
+
     //let as outer and nested scope
     let age = 31;
     {
@@ -21,6 +23,8 @@
         console.log(age);   //32
     }
     console.log(age);       //31
+```
+```javascript
 
     //var in outer scope and let as nested scope
     var name = 'Shafi';
@@ -30,6 +34,8 @@
     }
     console.log(name);      //Shafi
 
+```
+```javascript
 
     //let as outer scope and var as nested scope
     let age = 31;
