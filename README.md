@@ -5,6 +5,23 @@
 - ***const*** is write protected as well, can't be mutated.
 - ***var*** and ***let*** together, 
 ```javascript
+  
+    //var as outer and nested scope
+    var age = 31;
+    {
+        var age = 32;
+        console.log(age);   //32
+    }
+    console.log(age);       //32
+    
+    //let as outer and nested scope
+    let age = 31;
+    {
+        let age = 32;
+        console.log(age);   //32
+    }
+    console.log(age);       //31
+
     //var in outer scope and let as nested scope
     var name = 'Shafi';
     {
