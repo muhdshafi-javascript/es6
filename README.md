@@ -42,7 +42,27 @@
 ```
 
 ## Blocks and IIFEs
+- ES6 Blocks do the same purpose as IIFE in ES5
+```javascript
+    //ES5 IIFE
+    (function(){
+        var x = 10;
+        var y = 15;
+        console.log(x + y);
+    })();
+    console.log(x + y);
+```
+```javascript
+    //ES6 Block
+    {
+        let a = 10;
+        let b = 15;
+        console.log(a + b);
+    }
+    console.log(a + b);
+```
 ## Strings
+- ***Template Literal***: 
 ## Arrow functions
 ## Destructuring
 ## Arrays
