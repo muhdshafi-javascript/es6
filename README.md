@@ -63,6 +63,31 @@
 ```
 ## Strings
 - ***Template Literal***: 
+```javascript
+    //Template literal
+    let name = 'Shafi';
+    let job = 'Software Developer'
+    //ES5
+    console.log(name + ' is a ' + job);
+    //ES6
+    console.log(`${name} is a ${job}`);
+```
+-***StartWith,endWith, includes, repeat:*** 
+```javascript
+    //StartsWith(), endsWith(), includes(), repeat()
+    //ES5
+    console.log(job.substring(0, 'Soft'.length) === 'Soft');
+    console.log(job.substring(9, 9 +'Dev'.length) === 'Dev');
+    console.log(job.substring(job.length-'per'.length, job.length) === 'per');
+    console.log(job.indexOf('Dev') !== -1);
+    //ES6
+    console.log(job.startsWith('Soft'));
+    console.log(job.startsWith('Dev', 9));//0 based position 
+    console.log(job.endsWith('per'));
+    console.log(job.includes('Dev'));
+    console.log(name.repeat(3));
+    console.log(`${name} `.repeat(3));
+```
 ## Arrow functions
 ## Destructuring
 ## Arrays
