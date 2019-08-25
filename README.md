@@ -192,6 +192,11 @@
     paul.drawMe();
 ```    
 ## Destructuring
+- used to de-structuring the data structures
+- automatically create varibales for us.
+- can be used with both array and object.
+- with object, the variable names should match with keys, otherwise we need to specify it.
+- useful when a funtion return multple values.
 ## Arrays
 ## The Spread Operator
 ## Rest and Default Parameters
