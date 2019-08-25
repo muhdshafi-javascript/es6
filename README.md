@@ -197,6 +197,42 @@
 - can be used with both array and object.
 - with object, the variable names should match with keys, otherwise we need to specify it.
 - useful when a funtion return multple values.
+```javascript
+ //destructure Array
+    var shafi = ['Shafi', 31];
+    //ES-5
+    var name = shafi[0];
+    var age = shafi[1];
+    console.log(name + ' is '+ age +' years old.');
+
+    //ES-6
+    const [name2, age2] = shafi;
+    console.log(name2 + ' is '+ age2 +' years old.');
+
+    //destructure Object
+    const midhun = {
+        firstName:'Midhun',
+        lastName:'Sebastian',
+        skills: ['Java', 'javaSript']
+    };
+
+    //ES-5
+    var fstName = midhun.firstName;
+    var lstName = midhun.lastName;
+    var skillSet = midhun.skills;
+    console.log('first name:', fstName, '\nlast name:', lstName,'\nskills', skillSet);
+
+    //ES-6
+    const{fName, lName} = midhun;
+    console.log('first name:',fName,'\nlast name:', lName);
+    //the keys and varible names should match.
+    const{firstName, lastName, skills} = midhun;
+    console.log('first name:', firstName, '\nlast name:', lastName,'\nskills', skills);
+
+    //use a diifferent name other than the key
+    const{firstName: fn, lastName: ln, skills: s} = midhun;
+    console.log('fn:', fn, '\nln:', ln,'\s', s);
+```    
 ## Arrays
 ## The Spread Operator
 ## Rest and Default Parameters
