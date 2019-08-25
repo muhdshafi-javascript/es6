@@ -340,7 +340,37 @@ Spread allows an iterable such as an array expression or string to be expanded i
     console.log('clone: ', clone);
     console.log('combine: ', { ...person, ...employee });
 ```    
-## Rest and Default Parameters
+## Rest and Default Parameters  
+ - The rest parameter allows us to represent an indefinite number of arguments as an array. 
+ - The syntax is same as speard operator, but the rest paramether is used in funtion declration where as spread operator is used when invoking a function.
+ - we can also mix regular parameters and rest parameter, but only the last one can be a rest parameter.
+```javascript
+    //ES-5
+    function getAges(){
+        var currentYear = new Date().getFullYear();
+        console.log('is arguments an array: ', arguments instanceof Array);
+        var argArray = Array.prototype.slice.call(arguments);
+        argArray.forEach(function(yob){
+            console.log(currentYear - yob);
+        });
+    }
+    getAges(1988, 1990, 1965, 2008);
+    console.log('-----------------');
+    //ES-6
+    function getAgesNew(...yobs){
+        var currentYear = new Date().getFullYear();
+        yobs.forEach(yob => console.log(currentYear - yob));
+    }
+    getAgesNew(1988, 1990, 1965, 2008);
+    console.log('-----------------');
+
+    //pass addiotional parameter
+    //we have to split the argument to acheive it in ES-5.
+    function getAgesIn(year, ...yobs){
+        yobs.forEach(yob => console.log(year - yob));
+    }
+    getAgesIn(2030, 1988, 1990, 1965, 2008);
+```    
 ## Maps
 ## Classes and subclasses
 ## Promises
