@@ -241,8 +241,48 @@
 Spread allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.  
 - it can be used as a better replacement of apply() to pass an array or string to a funtion that expect a number of args.
 - apply() can not be used with the *new()*, spread can be used, ypu can do shallow clone and concatination.
-- it can e used with object literals as well *(ES7)*
+- it can be used with object literals as well *(ES7)*  
+```javascript
+   //with Array
+    function sumOfFour(a, b, c, d) {
+        return a + b + c + d;
+    }
+    //expected input
+    console.log('regular: ', sumOfFour(1, 2, 3, 4));
+    //with Array as input
+    var inputArr = [1, 2, 3, 4];
+    //ES-5
+    console.log('using ES-5 apply: ', sumOfFour.apply(null, inputArr));
+    //ES-6
+    console.log('using ES6 spread:', sumOfFour(...inputArr));
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5, 6];
+    console.log('array concatination: ', [...arr1, ...arr2]);
+    //use with new(), apply can not be used here.
+    var dateFields = [1988, 9, 17];  // 17 Oct 1988
+    var d = new Date(...dateFields);
+    console.log('date: ', d);
 
+    //with String
+    function combineString(s1, s2, s3, s4) {
+        return s1 + 'A' + s2 + 'B' + s3 + 'C' + s4 + 'D';
+    }
+    console.log(combineString(...'abcde'));
+
+    //with Object
+    const person = {
+        name: 'Shafi',
+        age: 31
+    }
+    const employee = {
+        designation: 'R&D Development Manager',
+        skills: ['javaScript', 'Java']
+    }
+
+    const clone = { ...person };
+    console.log('clone: ', clone);
+    console.log('combine: ', { ...person, ...employee });
+```    
 ## Rest and Default Parameters
 ## Maps
 ## Classes and subclasses
