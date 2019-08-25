@@ -72,7 +72,7 @@
     //ES6
     console.log(`${name} is a ${job}`);
 ```
--***StartWith,endWith, includes, repeat:*** 
+- ***StartWith,endWith, includes, repeat:*** 
 ```javascript
     //StartsWith(), endsWith(), includes(), repeat()
     //ES5
@@ -89,6 +89,108 @@
     console.log(`${name} `.repeat(3));
 ```
 ## Arrow functions
+- regular anonymous functions use dynmic soping.
+- Arrow functions use lexical scoping.  
+```javascript
+    var shafi = {
+        name: 'Shafi',
+        yob: 1988,
+        doSomething: function (callBack) {
+            callBack('doSomething');
+        },
+        getAge: function (callBack) {
+            callBack(this.name, this.yob);
+        }
+    }
+    //ES5
+    shafi.doSomething(function (obj) {
+        console.log('Callback is invoked from ' + obj);
+    });
+    //ES6
+    shafi.doSomething(obj => console.log(`Callback is invoked from ${obj}`));
+
+    //ES5
+    shafi.getAge(function (name, yob) {
+        var today = new Date();
+        console.log(name + ' is ' + (today.getFullYear() - yob) + ' years old');
+    });
+    //ES6
+    shafi.getAge((name, yob) => {
+        const today = new Date();
+        console.log(`${name} is ${today.getFullYear() - yob} years old`);
+    });
+
+    //this keyword
+    //ES5 - anonymous funtions use dynamic scope 
+    var vineesh = {
+        name: 'Vineesh',
+        yob: 1988,
+        drawMe: function () {
+            var vineeshDom = document.createElement('div');
+            vineeshDom.innerHTML = '<h2>' + this.name + ' was born in ' + this.yob + ', click me </h2>';
+            document.body.insertAdjacentElement('beforeend',vineeshDom);
+            vineeshDom.addEventListener('click', function(){
+                var today = new Date();
+                console.log(this.name + ' is ' + (today.getFullYear() - this.yob) + ' years old');
+                console.log('this:',this); //this points to vineeshDom
+            });
+        }
+    };
+    vineesh.drawMe();
+    //Fix the this issue 
+    //Using bind()
+    var sudheesh = {
+        name: 'Sudheesh',
+        yob: 1987,
+        drawMe: function () {
+            var sudheeshDom = document.createElement('div');
+            sudheeshDom.innerHTML = '<h2>' + this.name + ' was born in ' + this.yob + ', click me </h2>';
+            document.body.insertAdjacentElement('beforeend',sudheeshDom);
+            sudheeshDom.addEventListener('click', function(){
+                var today = new Date();
+                console.log(this.name + ' is ' + (today.getFullYear() - this.yob) + ' years old');
+                console.log('this:',this); //this points to sudheesh object
+            }.bind(this));
+        }
+    };
+    sudheesh.drawMe();
+    //Using extra local variable
+    var shameer = {
+        name: 'Shameer',
+        yob: 1990,
+        drawMe: function () {
+            var that = this;
+            var shameerDom = document.createElement('div');
+            shameerDom.innerHTML = '<h2>' + this.name + ' was born in ' + this.yob + ', click me </h2>';
+            document.body.insertAdjacentElement('beforeend',shameerDom);
+            shameerDom.addEventListener('click', function(){
+                var today = new Date();
+                console.log(that.name + ' is ' + (today.getFullYear() - that.yob) + ' years old');
+                console.log('this:',that); //that points to shameer object
+            });
+        }
+    };
+    shameer.drawMe();
+
+
+    //ES6
+    //Arrrow functions use lexical scope
+    var paul = {
+        name: 'Paul',
+        yob: 1990,
+        drawMe: function () {
+            var paulDom = document.createElement('div');
+            paulDom.innerHTML = '<h2>' + this.name + ' was born in ' + this.yob + ', click me </h2>';
+            document.body.insertAdjacentElement('beforeend',paulDom);
+            paulDom.addEventListener('click', event =>{
+                var today = new Date();
+                console.log(this.name + ' is ' + (today.getFullYear() - this.yob) + ' years old');
+                console.log('this:',this); //this points to paul object
+            });
+        }
+    };
+    paul.drawMe();
+```    
 ## Destructuring
 ## Arrays
 ## The Spread Operator
