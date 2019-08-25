@@ -236,7 +236,64 @@
 ## Arrays  
 - ***Array.from():***  convert an array like data structure to an array, eg: Node list
 - ***For-of:***  new loop which work like forEach and support continue and break as well.
-- ***find() & findIndex():***  to find the index or elelemt which match the criteria given in callback argument
+- ***find() & findIndex():***  to find the index or elelemt which match the criteria given in callback argument   
+```javascript
+    var container = document.createElement('div');
+    container.innerHTML = `<ol>
+                                <li>Coffee</li>
+                                <li>Tea</li>
+                                <li>Milk</li>
+                            </ol>`;
+    document.body.appendChild(container);
+    var nodeList = document.getElementsByTagName('li');
+    console.log('is nodeList an Array: ', nodeList instanceof Array);
+    //*** Iterate over Array like list ***
+    //ES-5, we need to use hack here
+    var nodeArray = Array.prototype.slice.call(nodeList);
+    console.log('is nodeArray an Array: ', nodeArray instanceof Array);
+    nodeArray.forEach(function (element) {
+        console.log(element.textContent);
+    });
+
+    //ES-6, convert Array like data structure to an Array
+    const nodes = Array.from(nodeList);
+    console.log('is nodes an Array: ', nodes instanceof Array);
+
+
+    //Continue or Break
+    //ES-5, we have to use traditional for loop as the ForEach support Continue or Break 
+    for (var i = 0; i < nodeArray.length; i++) {
+        if (nodeArray[i].textContent === 'Coffee')
+            continue;
+        if (nodeArray[i].textContent === 'Milk')
+            break;
+        console.log(nodeArray[i].textContent);
+    }
+
+    //ES-6, new loop, For-of
+    for (let current of nodeArray) {
+        if (current.textContent === 'Coffee')
+            continue;
+        if (current.textContent === 'Milk')
+            break;
+        console.log(current.textContent);
+    }
+
+    // find indices or find a values which match a criteria, from an array
+    //ES-5
+    var ages = [12, 17, 8, 21, 5, 22];
+
+    //ES-6 , find() and findIndex()
+    var fullAges = ages.map(function (element) {
+        return element >= 18;
+    });
+    console.log(fullAges.indexOf(true));
+    console.log(ages[fullAges.indexOf(true)]);
+
+    //ES-6
+    console.log(ages.findIndex(current => current >= 18));
+    console.log(ages.find(current => current >= 18));
+```    
 ## The Spread Operator
 Spread allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.  
 - it can be used as a better replacement of apply() to pass an array or string to a funtion that expect a number of args.
