@@ -233,8 +233,16 @@
     const{firstName: fn, lastName: ln, skills: s} = midhun;
     console.log('fn:', fn, '\nln:', ln,'\s', s);
 ```    
-## Arrays
+## Arrays  
+- ***Array.from():***  convert an array like data structure to an array, eg: Node list
+- ***For-of:***  new loop which work like forEach and support continue and break as well.
+- ***find() & findIndex():***  to find the index or elelemt which match the criteria given in callback argument
 ## The Spread Operator
+Spread allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.  
+- it can be used as a better replacement of apply() to pass an array or string to a funtion that expect a number of args.
+- apply() can not be used with the *new()*, spread can be used, ypu can do shallow clone and concatination.
+- it can e used with object literals as well *(ES7)*
+
 ## Rest and Default Parameters
 ## Maps
 ## Classes and subclasses
