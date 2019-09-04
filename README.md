@@ -371,6 +371,37 @@ Spread allows an iterable such as an array expression or string to be expanded i
     }
     getAgesIn(2030, 1988, 1990, 1965, 2008);
 ```    
+ES6 provides an easier way to set the default values for the parameters of a function as shown below:  
+```javascript  
+  //ES5
+    function Person(firstName, lastName, age, nationality){
+
+        if(nationality === undefined ){
+            nationality = 'Indian';
+        }
+
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.nationality = nationality;
+    }
+
+    var shafi = new Person('Muhammed', 'Shafi');
+    console.log('shafi:', shafi);
+    var abin = new Person('Abin', 'Stephan', 30, 'Canadian');
+    console.log('abin:', abin);
+
+    //ES6
+    function Student(firstName, lastName, age =32, department='CSE'){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.department = department;
+    }
+
+    console.log('Vinessh:', new Student('Vineesh', 'Chola', 31));
+    console.log('Sudheesh:', new Student('Sudheesh', 'Athra', undefined, 'EEE'));
+```    
 ## Maps
 ## Classes and subclasses
 ## Promises
