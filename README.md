@@ -404,8 +404,10 @@ ES6 provides an easier way to set the default values for the parameters of a fun
 ```    
 ## Maps
 ## Classes and subclasses  
-- Classes provide a easier syntax for prototype inheritance.
-- Only the Syntax is new, the semantics are same.  
+- Class and Objects  
+    - Classes provide a easier syntax for prototype inheritance.
+    - Only the Syntax is new, the semantics are same.  
+    - Class allows only funtions to be defined inside, properties should defined through the constructor.(it is to avoid inherit the propertites)
 ```javascript 
     //ES5
     var Person5 = function (name, yob, job) {
@@ -453,6 +455,69 @@ ES6 provides an easier way to set the default values for the parameters of a fun
     Person6.sayHello();    
 
 ```    
+- Class inheritance  
+```javascript 
+    //ES5
+    //Super class
+    var Person5 = function (name, yob) {
+        this.name = name;
+        this.yob = yob;
+    };
+    //Methods on super class
+    Person5.prototype.getAge = function () {
+        var now = new Date();
+        console.log(this.name + ' is ' + (now.getFullYear() - this.yob) + ' years old');
+
+    };
+    //Sub class
+    var Student5 = function (name, yob, department) {
+        Person5.call(this, name, yob);
+        this.department = department;
+    };
+    //connect prototype chain(order is important here, 
+    //othewise the funtions will be defined on the default prototype object 
+    //and those will not accessible after connecting the chain)
+    Student5.prototype = Object.create(Person5.prototype);
+    //Methods on sub class
+    Student5.prototype.getDep = function () {
+        console.log(this.name + ' is a student of ' + this.department + ' department');
+    };
+
+
+    var shafi = new Student5('Shafi', 1988, 'CSE');
+    shafi.getAge();
+    shafi.getDep();
+
+    var shameer = new Person5('Shameer', 1990);
+    shameer.getAge();
+    //shameer.getDep();  //shameer.getDep is not a function
+
+
+    //ES6
+    class Person6 {
+        constructor(name, yob) {
+            this.name = name;
+            this.yob = yob;
+        }
+        getAge() {
+            var now = new Date();
+            console.log(this.name + ' is ' + (now.getFullYear() - this.yob) + ' years old');
+        }
+    }
+    class Student6 extends Person6{
+        constructor(name, yob, department){
+            super(name, yob);
+            this.department = department;
+        }
+        getDep(){
+            console.log(this.name + ' is a student of ' + this.department + ' department');
+        }
+    }
+
+    const midhun = new Student6('Midhun', 1988, 'CSE');
+    midhun.getAge();
+    midhun.getDep();
+```  
 
 ## Promises
 ## Native Modules
