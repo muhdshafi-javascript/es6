@@ -403,6 +403,56 @@ ES6 provides an easier way to set the default values for the parameters of a fun
     console.log('Sudheesh:', new Student('Sudheesh', 'Athra', undefined, 'EEE'));
 ```    
 ## Maps
-## Classes and subclasses
+## Classes and subclasses  
+- Classes provide a easier syntax for prototype inheritance.
+- Only the Syntax is new, the semantics are same.  
+```javascript 
+    //ES5
+    var Person5 = function (name, yob, job) {
+        this.name = name;
+        this.yob = yob;
+        this.job = job;
+    }
+    Person5.prototype.getAge = function () {
+        var now = new Date();
+        console.log(this.name + ' is ' + (now.getFullYear() - this.yob) + ' years old');
+    }
+    //static method
+    Person5.sayHello = function(){
+        console.log('Hello...');
+    }
+
+    var shafi = new Person5('Shafi', 1988, 'SDE');
+    console.log('shafi:',shafi);
+    shafi.getAge();
+    Person5.sayHello();
+
+    //ES6
+    class Person6 {
+        constructor(name, yob, job) {
+            this.name = name;
+            this.yob = yob;
+            this.job = job;
+        }
+
+        getAge() {
+            var now = new Date();
+            console.log(this.name + ' is ' + (now.getFullYear() - this.yob) + ' years old');
+        }
+
+        //Static method
+        static sayHello(){
+            console.log('Hello...');
+        }
+    }
+
+    const vineesh = new Person6('Vineesh', 1988, 'SDE');
+    console.log('vineesh:',vineesh);
+    vineesh.getAge();
+    console.log(Person6);
+    Person6.sayHello();    
+
+```    
+
 ## Promises
 ## Native Modules
