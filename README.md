@@ -519,5 +519,10 @@ ES6 provides an easier way to set the default values for the parameters of a fun
     midhun.getDep();
 ```  
 
-## Promises
+## Promises  
+### Asynchronous funtions
+- Web APIs are the set of API provided by the browser and that we can communicate with using JavaScript in order to solve our front-end problems  
+eg: setTimeout(), DOM events, XMLHttpRequest()  
+
+
 ## Native Modules
