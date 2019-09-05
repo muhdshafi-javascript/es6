@@ -521,21 +521,23 @@ ES6 provides an easier way to set the default values for the parameters of a fun
 
 ## Promises  
 ### Asynchronous funtions
-- Web APIs are the set of API provided by the browser and that we can communicate with using JavaScript in order to solve our front-end problems  
+- ***Web APIs*** are the set of API provided by the browser and that we can communicate with using JavaScript in order to solve our front-end problems  
 eg: setTimeout(), DOM events, XMLHttpRequest()    
 These lives out side the javaScript engine, there are also in the Javascript runtime. 
 - **Javascript Engine vs Runtime environment**  
   - A ***JavaScript engine*** is a program responsible for translating source code into machine code and executing the translation result on a computer’s central processing unit 
-    - Chrome V8 – As you probably guessed the engine shipped in Google Chrome. It’s an open source project written in C++. V8 is also used in Opera, NodeJS, and Couchbase.  
-    - SpiderMonkey – The open source engine implemented in C++. It’s maintained by Mozilla Foundation. You can find it in Firefox.  
-    - Nitro – The engine developed by Apple. It’s used in Safari.  
-    - Chakra – Developed by Microsoft as the JavaScript engine for Edge browser.  
+    - **Chrome V8** – As you probably guessed the engine shipped in Google Chrome. It’s an open source project written in C++. V8 is also used in Opera, NodeJS, and Couchbase.  
+    - **SpiderMonkey** – The open source engine implemented in C++. It’s maintained by Mozilla Foundation. You can find it in Firefox.  
+    - **Nitro** – The engine developed by Apple. It’s used in Safari.  
+    - **Chakra** – Developed by Microsoft as the JavaScript engine for Edge browser.  
   - ***JavaScript Runtime environment:*** In the web development, you don’t usually use the engine directly. The JavaScript engine works inside an environment, which provides additional features to your scripts that you can use at runtime.   
+    - Browser
+    - Server - NodeJS
+    - Database - MongoDB uses javascript based query language
 - **Event loop** 
     - It is a part of the JavaScript runtime environment, is a mechanism responsible for handling callbacks.  
     - When you create a callback, you always associate it with a particular event. If that event occurs, the environment puts your callback into a so-called Event handlers queue. The Event loop constantly monitors the queue and executes its elements in the order they arrive.  
-    - Callbacks are a l w a y s executed completely. The Event loop runs one callback at a time. No context switching. All callbacks in the queue have to wait until the current one is finished.  
-
-If a script runs too long, it blocks others. That’s why callbacks should be relatively short and simple.
-
+    - Callbacks are always executed completely. The Event loop runs one callback at a time. No context switching. All callbacks in the queue have to wait until the current one is finished. If a script runs too long, it blocks others. That’s why callbacks should be relatively short and simple.  
+-      
+## Async/Await  
 ## Native Modules
